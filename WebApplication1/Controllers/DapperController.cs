@@ -10,14 +10,17 @@ namespace WebApplication1.Controllers
 
     public class UsersController : ControllerBase
     {
-        private string CONNECTIONSTRING = "Server=127.0.0.1;Port=5432;Database=TestDb;User Id=postgres;Password=root;";
+        private string CONNECTIONSTRING = "Server=127.0.0.1;Port=5432;Database=MyData;User Id=postgres;Password=admin;";
         [HttpGet]
         public List<Products> GetDapper()
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(CONNECTIONSTRING))
             {
                 string query = "select * from products";
-                return connection.Query<Products>(query).ToList();
+                
+                var lst  = connection.Query<Products>(query).ToList();
+
+                return lst;
             }
         }
 

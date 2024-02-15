@@ -7,7 +7,7 @@ namespace TestApplication.Controllers
     [ApiController]
     public class StudentADONETController : ControllerBase
     {
-        private readonly string _conString = "Server=127.0.0.1;Port=5432;Database=TestDb;User Id=postgres;Password=root;";
+        private readonly string _conString = "Server=127.0.0.1;Port=5432;Database=MyData;User Id=postgres;Password=admin;";
 
         [HttpGet]
         [Route("Get")]
