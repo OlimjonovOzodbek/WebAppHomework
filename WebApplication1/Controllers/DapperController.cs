@@ -40,17 +40,17 @@ namespace WebApplication1.Controllers
             }
         }
         [HttpPut]
-        public string PutDapper(int id, Products products)
+        public string PutDapper(int id,string name,string description,string photopath, Products products)
         {
             using (NpgsqlConnection connection = new NpgsqlConnection(CONNECTIONSTRING))
             {
-                string query = $"update products set name = @name, description = @description, photopath = @photopath where id = @id";
+                string query = $"update products set name = @name, description = @description, photopathth = @photopath where id = @id";
                 int status = connection.Execute(query, new
                 {
                     id = id,
-                    name = products.Name,
-                    description = products.Description,
-                    photopath = products.PhotoPath
+                    name = name,
+                    description = description,
+                    photopath = photopath
                 });
                 return $"Update Status [=> {status}";
             }
